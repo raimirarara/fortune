@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import RelationSanku from "public/relation_sanku.png";
 import RelationYado from "public/relation_yado.png";
 import { CalendarInfo } from "@/entities/CalendarInfo";
-import { Container, Text, Title, createStyles } from "@mantine/core";
+import { Button, Container, Text, Title, createStyles } from "@mantine/core";
 
 const ASTROLOGY27 = [
   "昴宿",
@@ -138,6 +138,14 @@ export default function Result() {
             alt="relation_yado"
           />
         </div>
+        <Button
+          variant="gradient"
+          gradient={{ from: "#ed6ea0", to: "#ec8c69", deg: 35 }}
+          size="md"
+          onClick={() => router.push("/")}
+        >
+          もどる
+        </Button>
       </main>
     </>
   );

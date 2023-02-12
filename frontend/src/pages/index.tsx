@@ -125,6 +125,7 @@ export default function Home() {
 
             <div className={classes.controls}>
               <DatePicker
+                dropdownType="modal"
                 size="lg"
                 locale="ja"
                 placeholder="誕生日を入力"
