@@ -1,13 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import "dayjs/locale/ja";
+import { css } from "@emotion/react";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { DatePicker } from "@mantine/dates";
-import { Button } from "@mantine/core";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
+import RelationSanku from "public/relation_sanku.png";
+import RelationYado from "public/relation_yado.png";
+
+const BREAKPOINT = "@media (max-width: 755px)";
 
 export default function Result() {
   const router = useRouter();
@@ -23,6 +26,38 @@ export default function Result() {
       </Head>
       <main className={styles.main}>
         <div>{myShukuyou}</div>
+        <Image
+          css={css`
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100%;
+          `}
+          src={RelationSanku}
+          alt="relation_sanku"
+        />
+        <Image
+          css={css`
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100%;
+            background-color: red;
+          `}
+          src={RelationYado}
+          alt="relation_yado"
+        />
+        <div
+          css={css`
+            color: red;
+          `}
+        >
+          aaaaaaa
+        </div>
       </main>
     </>
   );
