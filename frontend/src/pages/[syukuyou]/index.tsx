@@ -99,6 +99,14 @@ export default function Result() {
   const { classes } = useStyles();
   const [myShukuyou, setShukuyou] = useState(router.query.syukuyou as string);
   const rotateAngle = ASTROLOGY27.indexOf(myShukuyou) * 13.35;
+
+  useEffect(() => {
+    // reload時にもう一度setする
+    if (router.query.syukuyou) {
+      setShukuyou(router.query.syukuyou as string);
+    }
+  }, [router.query.syukuyou]);
+
   return (
     <>
       <Head>
