@@ -75,7 +75,7 @@ export type CalendarInfo = Readonly<{
 export const ASTROLOGY27: Array<CalendarInfo> = [
   { value: "角宿", kana: "かくしゅく" },
   { value: "亢宿", kana: "こうしゅく" },
-  { value: "氐宿", kana: "ていしゅく" },
+  { value: "底宿", kana: "ていしゅく" },
   { value: "房宿", kana: "ぼうしゅく" },
   { value: "心宿", kana: "しんしゅく" },
   { value: "尾宿", kana: "びしゅく" },
