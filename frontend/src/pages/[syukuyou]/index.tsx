@@ -10,8 +10,7 @@ import { useRouter } from "next/router";
 import RelationSanku from "public/relation_sanku.png";
 import RelationYado from "public/relation_yado.png";
 import { CalendarInfo } from "@/entities/CalendarInfo";
-
-const BREAKPOINT = "@media (max-width: 755px)";
+import { Container, Text, Title, createStyles } from "@mantine/core";
 
 const ASTROLOGY27 = [
   "昴宿",
@@ -43,13 +42,63 @@ const ASTROLOGY27 = [
   "胃宿",
 ];
 
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    position: "relative",
+    paddingTop: 120,
+    paddingBottom: 80,
+
+    "@media (max-width: 755px)": {
+      paddingTop: 80,
+      paddingBottom: 60,
+    },
+  },
+
+  inner: {
+    position: "relative",
+    zIndex: 1,
+  },
+
+  title: {
+    textAlign: "center",
+    fontWeight: 800,
+    fontSize: 40,
+    letterSpacing: -1,
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    marginBottom: theme.spacing.xs,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+
+    "@media (max-width: 520px)": {
+      fontSize: 28,
+      textAlign: "center",
+    },
+  },
+
+  highlight: {
+    color: theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 4 : 6],
+  },
+
+  description: {
+    textAlign: "center",
+
+    "@media (max-width: 520px)": {
+      textAlign: "center",
+      fontSize: theme.fontSizes.md,
+    },
+  },
+
+  controls: {
+    marginTop: theme.spacing.lg,
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
+
 export default function Result() {
   const router = useRouter();
+  const { classes } = useStyles();
   const [myShukuyou, setShukuyou] = useState(router.query.syukuyou as string);
   const rotateAngle = ASTROLOGY27.indexOf(myShukuyou) * 13.35;
-
-  useEffect(() => {}, []);
-
   return (
     <>
       <Head>
@@ -59,14 +108,24 @@ export default function Result() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div>{myShukuyou}</div>
-        <div>
+        <Title className={classes.title}>
+          <Text component="span" className={classes.highlight} inherit>
+            {myShukuyou}
+          </Text>
+        </Title>
+
+        <Container p={0} size={600}>
+          <Text size="lg" color="dimmed" className={classes.description}>
+            宿曜占星術
+          </Text>
+        </Container>
+
+        <div className={classes.controls}>
           <Image
             css={css`
               position: absolute;
-              margin-left: auto;
-              margin-right: auto;
             `}
+            width={350}
             src={RelationSanku}
             alt="relation_sanku"
           />
@@ -74,6 +133,7 @@ export default function Result() {
             css={css`
               transform: rotate(${rotateAngle}deg);
             `}
+            width={350}
             src={RelationYado}
             alt="relation_yado"
           />
