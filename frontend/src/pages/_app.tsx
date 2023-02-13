@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
           flexDirection: "column",
           justifyContent: "space-between",
           alignItems: "center",
-          minHeight: "100vh",
+          minHeight: "100dvh",
           padding: "6rem",
         },
       }}
