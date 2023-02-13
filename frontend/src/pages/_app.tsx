@@ -6,12 +6,17 @@ import type { AppProps } from "next/app";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AppShell
-      footer={<AppFooter />}
-      styles={(theme) => ({
+      styles={{
         main: {
-          backgroundColor: theme.colors.pink[0],
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "center",
+          minHeight: "100vh",
+          padding: "6rem",
         },
-      })}
+      }}
+      footer={<AppFooter />}
     >
       <Component {...pageProps} />
     </AppShell>
