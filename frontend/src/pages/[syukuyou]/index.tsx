@@ -108,7 +108,7 @@ export default function Result() {
         <Container className={classes.wrapper} size={1400}>
           <Title className={classes.title}>
             <Text className={classes.subtitle}>{myShukuyou}</Text>
-            <Text className={classes.subtitle2}>{rotateASTROLOGY27[myShukyouIndex].kana}</Text>
+            <Text className={classes.subtitle2}>{rotateASTROLOGY27[myShukyouIndex]?.kana}</Text>
           </Title>
 
           <div className={classes.controls}>
