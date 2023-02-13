@@ -1,4 +1,4 @@
-import JapaneseLunisolarCalendar, { calcJulianCenturyNumber, calcSunLongitude } from "./JapaneseLunisolarCalendar";
+import JapaneseLunisolarCalendar from "./JapaneseLunisolarCalendar";
 
 // ============================================================
 // メソッド
@@ -51,15 +51,13 @@ const getCyclicalASTROLOGY27 = (month: number) => {
  */
 export const getNijunanashuku = (calendar: JapaneseLunisolarCalendar) => {
   const cyclicalASTROLOGY27 = getCyclicalASTROLOGY27(calendar.month);
-  return cyclicalASTROLOGY27 && cyclicalASTROLOGY27[(calendar.day % 27) - 1];
+  let index = (calendar.day % 27) - 1;
+  console.log(index);
+  if (index == -1) {
+    index = 26;
+  }
+  return cyclicalASTROLOGY27 && cyclicalASTROLOGY27[index];
 };
-
-/**
- * 旧暦日基準の月相を取得します。
- * @param oldDay 旧暦日
- * @returns 月相
- */
-export const getLunaPhase = (oldDay: number) => LUNA_PHASES[(oldDay - 1) % LUNA_PHASES.length];
 
 // ============================================================
 // 定数
@@ -100,67 +98,4 @@ export const ASTROLOGY27: Array<CalendarInfo> = [
   { value: "張宿", kana: "ちょうしゅく" },
   { value: "翼宿", kana: "よくしゅく" },
   { value: "軫宿", kana: "しんしゅく" },
-];
-
-export const SIGN12: Array<CalendarInfo> = [
-  { value: "水瓶座", kana: "みずがめ", startAt: 120 },
-  { value: "魚座", kana: "うお", startAt: 219 },
-  { value: "牡羊座", kana: "おひつじ", startAt: 321 },
-  { value: "牡牛座", kana: "おうし", startAt: 420 },
-  { value: "双子座", kana: "ふたご", startAt: 521 },
-  { value: "蟹座", kana: "かに", startAt: 622 },
-  { value: "獅子座", kana: "しし", startAt: 723 },
-  { value: "乙女座", kana: "おとめ", startAt: 823 },
-  { value: "天秤座", kana: "てんびん", startAt: 923 },
-  { value: "蠍座", kana: "かに", startAt: 1024 },
-  { value: "射手座", kana: "いて", startAt: 1123 },
-  { value: "山羊座", kana: "やぎ", startAt: 1222 },
-];
-
-export const JUNISHI: Array<CalendarInfo> = [
-  { value: "子", kana: "ね" },
-  { value: "丑", kana: "うし" },
-  { value: "寅", kana: "とら" },
-  { value: "卯", kana: "う" },
-  { value: "辰", kana: "たつ" },
-  { value: "巳", kana: "み" },
-  { value: "午", kana: "うま" },
-  { value: "未", kana: "ひつじ" },
-  { value: "申", kana: "さる" },
-  { value: "酉", kana: "とり" },
-  { value: "戌", kana: "いぬ" },
-  { value: "亥", kana: "い" },
-];
-
-export const LUNA_PHASES: Array<CalendarInfo> = [
-  { value: "新月", kana: "しんげつ" },
-  { value: "繊月", kana: "せんげつ" },
-  { value: "三日月", kana: "みかづき" },
-  { value: "黄昏月", kana: "たそがれづき" },
-  { value: "五日月", kana: "" },
-  { value: "六日月", kana: "" },
-  { value: "七日月", kana: "" },
-  { value: "上弦月", kana: "じょうげんのつき" },
-  { value: "九日月", kana: "" },
-  { value: "十日夜月", kana: "とおかんやのつき" },
-  { value: "十日余月", kana: "とおかあまりのつき" },
-  { value: "十二日月", kana: "" },
-  { value: "十三夜月", kana: "じゅうさんやづき" },
-  { value: "待宵月", kana: "まちよいづき" },
-  { value: "十五夜月", kana: "じゅうごやづき" },
-  { value: "十六夜月", kana: "いざよいのつき" },
-  { value: "立待月", kana: "たちまちづき" },
-  { value: "居待月", kana: "いまちづき" },
-  { value: "寝待月", kana: "ねまちづき" },
-  { value: "更待月", kana: "ふけまちづき" },
-  { value: "二十日余月", kana: "はつかあまりのつき" },
-  { value: "二十二日月", kana: "" },
-  { value: "下弦月", kana: "かげんのつき" },
-  { value: "真夜中月", kana: "まよなかのつき" },
-  { value: "二十五日月", kana: "" },
-  { value: "暁月", kana: "ぎょうげつ" },
-  { value: "二十七日月", kana: "" },
-  { value: "二十八日月", kana: "" },
-  { value: "二十九日月", kana: "" },
-  { value: "月隠", kana: "つごもり" },
 ];

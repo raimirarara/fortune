@@ -1,6 +1,16 @@
+/* istanbul ignore file */
+/* eslint-disable */
+
 // ============================================================
 // 旧暦計算処理
 //
+// 下記プログラムをもとに、TypeScript で書き換えて構築されました。
+// ------------------------------------------------------------
+// qreki.js: 旧暦計算サンプルプログラム rev. 1.1
+// Coded by H.Takano (C)1993,1994
+// Arranged for ECMAScript(ECMA-262) by Nagano Yutaka (C)1999
+// http://kikuchisan.net/wsp/java/java59.html
+// ============================================================
 
 // ============================================================
 // 定数
@@ -210,6 +220,18 @@ export default class JapaneseLunisolarCalendar {
     this.year =
       this.date.getFullYear() -
       (10 <= saku[sakuIndex].month && this.date.getMonth() + 1 < saku[sakuIndex].month ? 1 : 0);
+
+    // ------------------------------------------------------------
+    // 月齢の算出
+    // ------------------------------------------------------------
+
+    // 小数第一位までの精度で導出する
+    // 朔望月は 29.3 から 29.8 の範囲となる
+    const lunaJulianDay = this.date.getJulianDay();
+    let lunaAge = Math.round((lunaJulianDay - this.calcSakuTime(lunaJulianDay)) * 10.0) / 10.0;
+    if (29.8 < lunaAge) lunaAge -= 29.8;
+    if (lunaAge < 0.0) lunaAge = 29.3;
+    this.lunaAge = lunaAge;
   }
 
   /**
