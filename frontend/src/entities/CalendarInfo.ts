@@ -52,7 +52,6 @@ const getCyclicalASTROLOGY27 = (month: number) => {
 export const getNijunanashuku = (calendar: JapaneseLunisolarCalendar) => {
   const cyclicalASTROLOGY27 = getCyclicalASTROLOGY27(calendar.month);
   let index = (calendar.day % 27) - 1;
-  console.log(index);
   if (index == -1) {
     index = 26;
   }
