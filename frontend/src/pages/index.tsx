@@ -65,7 +65,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   controls: {
-    minWidth: 190,
+    minWidth: 195,
     marginTop: theme.spacing.lg,
     display: "flex",
     justifyContent: "center",
