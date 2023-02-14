@@ -15,7 +15,6 @@ export default function App({ Component, pageProps }: AppProps) {
             alignItems: "center",
             minHeight: "100vh",
             padding: "6rem",
-            height: "-webkit-fill-available",
           },
         }}
         footer={<AppFooter />}
