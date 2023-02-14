@@ -18,8 +18,13 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     zIndex: 2,
   },
+  area: {
+    maxWidth: 70,
+    textAlign: "center",
+  },
   item: {
     maxHeight: 30,
+    textAlign: "center",
   },
 }));
 
@@ -36,14 +41,16 @@ export default function HeaderMenu() {
         </Menu.Target>
 
         <Menu.Dropdown className={classes.dropdown}>
-          <ScrollArea style={{ height: 250, width: 55 }}>
-            <Menu.Label>27宿</Menu.Label>
-            <Menu.Divider />
-            {ASTROLOGY27.map((yado) => (
-              <Menu.Item className={classes.item} key={yado.value} onClick={() => router.push("/" + yado.value)}>
-                {yado.value}
-              </Menu.Item>
-            ))}
+          <ScrollArea style={{ height: 250, width: 80 }}>
+            <div className={classes.area}>
+              <Menu.Label>27宿</Menu.Label>
+              <Menu.Divider />
+              {ASTROLOGY27.map((yado) => (
+                <Menu.Item className={classes.item} key={yado.value} onClick={() => router.push("/" + yado.value)}>
+                  {yado.value}
+                </Menu.Item>
+              ))}
+            </div>
           </ScrollArea>
         </Menu.Dropdown>
       </Menu>
