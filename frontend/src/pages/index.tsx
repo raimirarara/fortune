@@ -11,6 +11,7 @@ import JapaneseLunisolarCalendar from "@/entities/JapaneseLunisolarCalendar";
 import { createCalendarInfo } from "@/entities/CalendarInfo";
 import { createStyles, Title, Text, Button, Container } from "@mantine/core";
 import BackgroundImage from "@/components/BackgroundImage";
+import HeaderMenu from "@/components/HeaderMenu";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -110,6 +111,7 @@ export default function Home() {
         <link rel="icon" href="/sakura_crown.ico" />
       </Head>
       <BackgroundImage>
+        <HeaderMenu />
         <Container className={classes.wrapper} size={1400}>
           <div className={classes.inner}>
             <Title className={classes.title}>

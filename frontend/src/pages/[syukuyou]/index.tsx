@@ -13,6 +13,7 @@ import { CalendarInfo } from "@/entities/CalendarInfo";
 import { Button, Container, Text, Title, createStyles } from "@mantine/core";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ASTROLOGY27 } from "@/entities/CalendarInfo";
+import HeaderMenu from "@/components/HeaderMenu";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -104,6 +105,7 @@ export default function Result() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/sakura_crown.ico" />
       </Head>
+      <HeaderMenu />
       <BackgroundImage>
         <Container className={classes.wrapper} size={1400}>
           <Title className={classes.title}>
