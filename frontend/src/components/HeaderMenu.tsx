@@ -40,11 +40,9 @@ export default function HeaderMenu() {
             <Menu.Label>27宿</Menu.Label>
             <Menu.Divider />
             {ASTROLOGY27.map((yado) => (
-              <>
-                <Menu.Item className={classes.item} key={yado.value} onClick={() => router.push("/" + yado.value)}>
-                  {yado.value}
-                </Menu.Item>
-              </>
+              <Menu.Item className={classes.item} key={yado.value} onClick={() => router.push("/" + yado.value)}>
+                {yado.value}
+              </Menu.Item>
             ))}
           </ScrollArea>
         </Menu.Dropdown>
