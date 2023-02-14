@@ -101,7 +101,7 @@ export default function Result() {
     <>
       <Head>
         <title>{myShukuyou}</title>
-        <meta name="description" content="宿曜占い 結果" />
+        <meta name="description" content="咲麗流 宿曜占星術 自身の宿曜を知ろう!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/sakura_crown.ico" />
       </Head>
