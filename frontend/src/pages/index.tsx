@@ -4,7 +4,7 @@ import "dayjs/locale/ja";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { DatePicker } from "@mantine/dates";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import JapaneseLunisolarCalendar from "@/entities/JapaneseLunisolarCalendar";
@@ -78,10 +78,21 @@ export default function Home() {
   const { classes } = useStyles();
   const [value, onChange] = useState<Date | null>(new Date("1980-01-01"));
 
+  useEffect(() => {
+    // sessionStorage に保存したデータを取得する
+    let data = sessionStorage.getItem("prevDate");
+    if (data) {
+      onChange(new Date(data));
+    }
+  }, []);
+
   const onClick = () => {
     if (!value) {
       return;
     }
+    // sessionStorage にデータを保存する
+    sessionStorage.setItem("prevDate", value.toDateString());
+
     const calendar = new JapaneseLunisolarCalendar(value);
     const mySyukuyou = createCalendarInfo(calendar);
     router.push({
