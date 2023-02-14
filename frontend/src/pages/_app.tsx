@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
       <AppShell
         styles={{
           main: {
@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
             flexDirection: "column",
             justifyContent: "space-between",
             alignItems: "center",
-            minHeight: "100dvh",
+            minHeight: "100vh",
             padding: "6rem",
           },
         }}
