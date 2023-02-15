@@ -130,6 +130,8 @@ export default function Home() {
                 labelFormat="YYYY年MM月"
                 value={value}
                 onChange={onChange}
+                minDate={new Date("1868/01/01 00:00:00")}
+                maxDate={new Date("2099/12/31 23:59:59")}
               />
             </div>
             <div className={classes.controls}>
