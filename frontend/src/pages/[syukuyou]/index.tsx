@@ -105,8 +105,8 @@ export default function Result() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/sakura_crown.ico" />
       </Head>
-      <HeaderMenu />
       <BackgroundImage>
+        <HeaderMenu />
         <Container className={classes.wrapper} size={1400}>
           <Title className={classes.title}>
             <Text className={classes.subtitle}>{myShukuyou}</Text>
