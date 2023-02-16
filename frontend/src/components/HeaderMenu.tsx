@@ -31,6 +31,7 @@ const useStyles = createStyles((theme) => ({
 export default function HeaderMenu() {
   const { classes } = useStyles();
   const router = useRouter();
+  const rotateASTROLOGY27 = ASTROLOGY27.slice(16).concat(ASTROLOGY27.slice(0, 16));
   return (
     <div className={classes.menu}>
       <Menu shadow="md" width={100}>
@@ -45,7 +46,7 @@ export default function HeaderMenu() {
             <div className={classes.area}>
               <Menu.Label>27宿</Menu.Label>
               <Menu.Divider />
-              {ASTROLOGY27.map((yado) => (
+              {rotateASTROLOGY27.map((yado) => (
                 <Menu.Item className={classes.item} key={yado.value} onClick={() => router.push("/" + yado.value)}>
                   {yado.value}
                 </Menu.Item>
