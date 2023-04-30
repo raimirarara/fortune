@@ -67,13 +67,17 @@ const useStyles = createStyles((theme) => ({
   },
 
   controls: {
+    width: "100%",
     minWidth: 195,
+    paddingInline: 120,
     marginTop: theme.spacing.lg,
-    paddingInline: 420,
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
-    "@media (max-width: 520px)": {
+    "@media (min-width: 1125px)": {
+      paddingInline: 420,
+    },
+    "@media (max-width: 755px)": {
       paddingInline: 60,
     },
   },
