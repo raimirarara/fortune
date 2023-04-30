@@ -6,7 +6,9 @@ import SakuraLogo from "public/sakura_crown.png";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    borderTop: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]}`,
+    position: "fixed" /* 画面の一番下に固定 */,
+    bottom: 0 /* フッターを画面下部に配置 */,
+    width: "100%" /* 幅を100%に設定 */,
   },
 
   inner: {

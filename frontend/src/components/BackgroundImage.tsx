@@ -13,6 +13,7 @@ export default function BackgroundImage({ children }: any) {
           width: 100%;
           height: 100vh;
           z-index: -1;
+          opacity: 0.7;
         `}
         src={SakuraBackImage}
         alt="backgroundImage"

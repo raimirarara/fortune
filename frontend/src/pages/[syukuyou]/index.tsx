@@ -14,6 +14,7 @@ import { Button, Container, Text, Title, createStyles } from "@mantine/core";
 import BackgroundImage from "@/components/BackgroundImage";
 import { ASTROLOGY27 } from "@/entities/CalendarInfo";
 import HeaderMenu from "@/components/HeaderMenu";
+import { AppFooter } from "@/components/AppFooter";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -142,6 +143,7 @@ export default function Result() {
             </Button>
           </div>
         </Container>
+        <AppFooter />
       </BackgroundImage>
     </>
   );

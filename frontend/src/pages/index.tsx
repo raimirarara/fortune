@@ -12,6 +12,7 @@ import { createCalendarInfo } from "@/entities/CalendarInfo";
 import { createStyles, Title, Text, Button, Container } from "@mantine/core";
 import BackgroundImage from "@/components/BackgroundImage";
 import HeaderMenu from "@/components/HeaderMenu";
+import { AppFooter } from "@/components/AppFooter";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -68,9 +69,17 @@ const useStyles = createStyles((theme) => ({
   controls: {
     minWidth: 195,
     marginTop: theme.spacing.lg,
+    paddingInline: 420,
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
+    "@media (max-width: 520px)": {
+      paddingInline: 60,
+    },
+  },
+
+  spacer: {
+    height: theme.spacing.lg,
   },
 }));
 
@@ -118,7 +127,7 @@ export default function Home() {
               <Text>咲麗流</Text>
               <Text className={classes.subtitle}>宿曜占星術</Text>
             </Title>
-
+            <div className={classes.spacer} />
             <div className={classes.controls}>
               <Text className={classes.subtitle2}>生年月日</Text>
               <DatePicker
@@ -146,6 +155,7 @@ export default function Home() {
             </div>
           </div>
         </Container>
+        <AppFooter />
       </BackgroundImage>
     </>
   );
